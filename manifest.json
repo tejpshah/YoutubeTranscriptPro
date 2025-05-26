@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "TranscriptPro - YouTube Transcript Suite",
+  "version": "3.0.0",
+  "description": "Professional YouTube transcript extraction with bulk operations, multiple export formats, and advanced filtering. Extract, search, and organize video transcripts effortlessly.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["youtube-content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TranscriptPro - Professional YouTube Transcript Suite"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+T",
+        "mac": "Command+Shift+T"
+      },
+      "description": "Open TranscriptPro"
+    }
+  }
+}
